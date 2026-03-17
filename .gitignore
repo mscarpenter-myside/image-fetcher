@@ -19,12 +19,16 @@ Thumbs.db
 .vscode/
 *.code-workspace
 
-# Root Source Files (Ignored in favor of extension/ folder)
+# Root Source Files & Internal Config (Ignored in favor of folders)
 /background.js
 /sidepanel.html
 /sidepanel.js
 /manifest.json
 /logo.png
+/package.json
+/package-lock.json
+/cleanup.py
+/venv/
 
 # Chromium/Zip artifacts
 *.pem

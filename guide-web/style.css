@@ -30,7 +30,7 @@
 
 /* Paper lines pattern (horizontal ruled) with shadow/blur */
 .paper-lines {
-    background-image: 
+    background-image:
         linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
         linear-gradient(to bottom, transparent 1px, rgba(0, 0, 0, 0.) 2px, transparent 5px);
     background-size: 100% 24px;
