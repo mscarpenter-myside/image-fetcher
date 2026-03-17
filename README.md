@@ -28,5 +28,6 @@ Uma extensão para Google Chrome projetada para otimizar o fluxo de trabalho de 
 
 As chaves e tokens de API devem ser configurados em um arquivo `.env` na raiz do projeto (veja o arquivo `.env.example` para referência).
 
----
-**Engenharia de Conteúdo & Automação**
+## 📄 Licença
+
+Este projeto é de uso interno da MySide.
