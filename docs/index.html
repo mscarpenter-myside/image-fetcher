@@ -73,10 +73,18 @@
         }
         .highlight-box { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         .highlight-active { animation: highlightPulse 1.2s ease-in-out infinite; z-index: 60; }
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        @keyframes toastIn { from { opacity: 0; transform: translateX(-50%) translateY(16px) scale(0.95); } to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); } }
+        @keyframes toastOut { from { opacity: 1; transform: translateX(-50%) translateY(0); } to { opacity: 0; transform: translateX(-50%) translateY(8px); } }
+        .toast-enter { animation: toastIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .toast-exit { animation: toastOut 0.3s ease-in forwards; }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="bg-white text-ink-900 font-sans antialiased">
@@ -84,7 +92,8 @@
     <!-- ═══════════════════════════════════════ -->
     <!-- FIXED HEADER                           -->
     <!-- ═══════════════════════════════════════ -->
-    <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 bg-ink-950 border-b-2 border-coral-400 transition-all duration-300">
+    <header id="mainHeader"
+        class="fixed top-0 left-0 right-0 z-50 bg-ink-950 border-b-2 border-coral-400 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <!-- MySide Logo -->
@@ -95,9 +104,12 @@
             <div class="flex items-center gap-4">
                 <span class="hidden sm:block text-xs text-ink-500 font-medium">Guia de Usuário</span>
                 <a href="https://drive.google.com/drive/folders/1NmK8ZVznXBxw8rfKul2g9aCUBNTsjd83?usp=drive_link"
-                   target="_blank"
-                   class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 bg-coral-400 hover:bg-coral-500 text-white text-xs font-semibold rounded-lg transition-colors duration-200">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    target="_blank"
+                    class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 bg-coral-400 hover:bg-coral-500 text-white text-xs font-semibold rounded-lg transition-colors duration-200">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
                     Download
                 </a>
             </div>
@@ -108,19 +120,25 @@
     <!-- HERO SECTION                           -->
     <!-- ═══════════════════════════════════════ -->
     <section class="relative pt-14 overflow-hidden">
-        <div class="paper-lines noise relative min-h-[85vh] flex items-center bg-gradient-to-b from-ink-50 via-white to-white">
+        <div
+            class="paper-lines noise relative min-h-[85vh] flex items-center bg-gradient-to-b from-ink-50 via-white to-white">
             <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
                 <div class="max-w-3xl">
                     <!-- Breadcrumb-style label -->
                     <div class="hero-animate hero-animate-delay-1 flex items-center gap-2 mb-8">
-                        <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-ink-950 text-white text-[10px] font-bold tracking-widest uppercase">Docs</span>
-                        <svg class="w-4 h-4 text-ink-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                        <span
+                            class="inline-flex items-center px-2.5 py-1 rounded-full bg-ink-950 text-white text-[10px] font-bold tracking-widest uppercase">Docs</span>
+                        <svg class="w-4 h-4 text-ink-400" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
                         <span class="text-xs font-semibold text-ink-600">Guia de Usuário</span>
                     </div>
 
                     <!-- Title block -->
                     <h1 class="hero-animate hero-animate-delay-2">
-                        <span class="block text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink-950 leading-[1.05]">
+                        <span
+                            class="block text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink-950 leading-[1.05]">
                             Image<br>Fetcher
                         </span>
                         <span class="block mt-3 text-lg sm:text-xl font-semibold text-ink-600 tracking-tight">
@@ -130,16 +148,27 @@
 
                     <!-- Badges -->
                     <div class="hero-animate hero-animate-delay-3 flex flex-wrap gap-3 mt-10">
-                        <span class="shimmer-badge inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ink-200 bg-white text-sm font-semibold text-ink-700">
+                        <span
+                            class="shimmer-badge inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ink-200 bg-white text-sm font-semibold text-ink-700">
                             <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
                             v1.0 Stable
                         </span>
-                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ink-200 bg-white text-sm font-semibold text-ink-600">
-                            <svg class="w-4 h-4 text-ink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        <span
+                            class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ink-200 bg-white text-sm font-semibold text-ink-600">
+                            <svg class="w-4 h-4 text-ink-500" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
+                            </svg>
                             Chrome Extension
                         </span>
-                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ink-200 bg-white text-sm font-semibold text-ink-600">
-                            <svg class="w-4 h-4 text-ink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        <span
+                            class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ink-200 bg-white text-sm font-semibold text-ink-600">
+                            <svg class="w-4 h-4 text-ink-500" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
                             Engenharia de Conteúdo
                         </span>
                     </div>
@@ -147,27 +176,33 @@
                     <!-- CTA -->
                     <div class="hero-animate hero-animate-delay-4 mt-12 flex flex-wrap gap-4">
                         <a href="#instalacao"
-                           class="group inline-flex items-center gap-2 px-6 py-3 bg-ink-950 hover:bg-ink-800 text-white text-sm font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-ink-950/20 hover:shadow-xl hover:shadow-ink-950/25">
+                            class="group inline-flex items-center gap-2 px-6 py-3 bg-ink-950 hover:bg-ink-800 text-white text-sm font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-ink-950/20 hover:shadow-xl hover:shadow-ink-950/25">
                             Começar Instalação
-                            <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
                         </a>
                         <a href="https://github.com/mscarpenter-myside/image-fetcher" target="_blank"
-                           class="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-ink-50 text-ink-700 text-sm font-semibold rounded-xl border border-ink-200 transition-all duration-200">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            class="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-ink-50 text-ink-700 text-sm font-semibold rounded-xl border border-ink-200 transition-all duration-200">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
                             Repositório
                         </a>
                     </div>
                 </div>
 
                 <!-- Decorative element -->
-                <div class="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2 opacity-[0.03]">
+                <div class="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2" style="opacity:0.03">
                     <svg class="w-96 h-96" viewBox="0 0 200 200" fill="currentColor">
-                        <rect x="20" y="20" width="60" height="60" rx="8"/>
-                        <rect x="100" y="20" width="80" height="28" rx="8"/>
-                        <rect x="100" y="60" width="80" height="20" rx="6"/>
-                        <rect x="20" y="100" width="160" height="20" rx="6"/>
-                        <rect x="20" y="136" width="100" height="44" rx="8"/>
-                        <rect x="136" y="136" width="44" height="44" rx="22"/>
+                        <rect x="20" y="20" width="60" height="60" rx="8" />
+                        <rect x="100" y="20" width="80" height="28" rx="8" />
+                        <rect x="100" y="60" width="80" height="20" rx="6" />
+                        <rect x="20" y="100" width="160" height="20" rx="6" />
+                        <rect x="20" y="136" width="100" height="44" rx="8" />
+                        <rect x="136" y="136" width="44" height="44" rx="22" />
                     </svg>
                 </div>
             </div>
@@ -186,25 +221,31 @@
                     <p class="text-[10px] font-bold tracking-[0.15em] uppercase text-ink-400 mb-4 pl-4">Navegação</p>
                     <ul class="space-y-1">
                         <li>
-                            <a href="#instalacao" class="nav-link relative block pl-4 pr-3 py-2 rounded-r-lg text-sm font-medium text-ink-500 hover:text-ink-900 hover:bg-ink-50">
+                            <a href="#instalacao"
+                                class="nav-link relative block pl-4 pr-3 py-2 rounded-r-lg text-sm font-medium text-ink-500 hover:text-ink-900 hover:bg-ink-50">
                                 <span class="flex items-center gap-2.5">
-                                    <span class="w-5 h-5 rounded-md bg-ink-100 text-ink-500 flex items-center justify-center text-[10px] font-bold">1</span>
+                                    <span
+                                        class="w-5 h-5 rounded-md bg-ink-100 text-ink-500 flex items-center justify-center text-[10px] font-bold">1</span>
                                     Instalação
                                 </span>
                             </a>
                         </li>
                         <li>
-                            <a href="#funcionalidades" class="nav-link relative block pl-4 pr-3 py-2 rounded-r-lg text-sm font-medium text-ink-500 hover:text-ink-900 hover:bg-ink-50">
+                            <a href="#funcionalidades"
+                                class="nav-link relative block pl-4 pr-3 py-2 rounded-r-lg text-sm font-medium text-ink-500 hover:text-ink-900 hover:bg-ink-50">
                                 <span class="flex items-center gap-2.5">
-                                    <span class="w-5 h-5 rounded-md bg-ink-100 text-ink-500 flex items-center justify-center text-[10px] font-bold">2</span>
+                                    <span
+                                        class="w-5 h-5 rounded-md bg-ink-100 text-ink-500 flex items-center justify-center text-[10px] font-bold">2</span>
                                     Funcionalidades
                                 </span>
                             </a>
                         </li>
                         <li>
-                            <a href="#dicas" class="nav-link relative block pl-4 pr-3 py-2 rounded-r-lg text-sm font-medium text-ink-500 hover:text-ink-900 hover:bg-ink-50">
+                            <a href="#dicas"
+                                class="nav-link relative block pl-4 pr-3 py-2 rounded-r-lg text-sm font-medium text-ink-500 hover:text-ink-900 hover:bg-ink-50">
                                 <span class="flex items-center gap-2.5">
-                                    <span class="w-5 h-5 rounded-md bg-ink-100 text-ink-500 flex items-center justify-center text-[10px] font-bold">3</span>
+                                    <span
+                                        class="w-5 h-5 rounded-md bg-ink-100 text-ink-500 flex items-center justify-center text-[10px] font-bold">3</span>
                                     Dicas
                                 </span>
                             </a>
@@ -212,31 +253,45 @@
                     </ul>
 
                     <!-- Google Imagens shortcut -->
-                    <div id="google-imagens-box" class="mt-10 mx-3 p-4 rounded-xl bg-gradient-to-br from-ink-950 to-ink-800 text-white scroll-mt-28 highlight-box">
+                    <div id="google-imagens-box"
+                        class="mt-10 mx-3 p-4 rounded-xl bg-gradient-to-br from-ink-950 to-ink-800 text-white scroll-mt-28 highlight-box">
                         <div class="flex items-center gap-2 mb-1.5">
                             <span class="relative flex h-2 w-2">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
                             </span>
                             <p class="text-xs font-semibold">Acesso Rápido</p>
                         </div>
-                        <p class="text-[11px] text-ink-400 leading-relaxed mb-3">Busque imagens de imóveis diretamente no Google Imagens.</p>
+                        <p class="text-[11px] text-ink-400 leading-relaxed mb-3">Busque imagens de imóveis diretamente
+                            no Google Imagens.</p>
                         <a href="https://images.google.com" target="_blank"
-                           class="group flex items-center justify-center gap-2 w-full py-2.5 bg-white/10 hover:bg-white/15 text-white text-xs font-bold rounded-lg border border-white/10 hover:border-white/20 transition-all duration-200">
-                            <svg class="w-4 h-4 text-ink-300 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3" stroke-linecap="round"/></svg>
+                            class="group flex items-center justify-center gap-2 w-full py-2.5 bg-white/10 hover:bg-white/15 text-white text-xs font-bold rounded-lg border border-white/10 hover:border-white/20 transition-all duration-200">
+                            <svg class="w-4 h-4 text-ink-300 group-hover:text-white transition-colors"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="m21 21-4.3-4.3" stroke-linecap="round" />
+                            </svg>
                             Google Imagens
-                            <svg class="w-3 h-3 text-ink-500 group-hover:text-ink-300 transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                            <svg class="w-3 h-3 text-ink-500 group-hover:text-ink-300 transition-colors" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg>
                         </a>
                     </div>
                 </nav>
             </aside>
 
             <!-- MOBILE NAV (horizontal tabs) -->
-            <div class="lg:hidden sticky top-14 z-40 -mx-6 px-6 py-3 bg-white/90 backdrop-blur-lg border-b border-ink-100">
+            <div
+                class="lg:hidden sticky top-14 z-40 -mx-6 px-6 py-3 bg-white/90 backdrop-blur-lg border-b border-ink-100">
                 <div class="flex gap-1 p-1 bg-ink-50 rounded-xl">
-                    <a href="#instalacao" class="mobile-nav flex-1 text-center py-2 text-xs font-semibold rounded-lg text-ink-500 hover:text-ink-800 transition-colors">Instalação</a>
-                    <a href="#funcionalidades" class="mobile-nav flex-1 text-center py-2 text-xs font-semibold rounded-lg text-ink-500 hover:text-ink-800 transition-colors">Funcionalidades</a>
-                    <a href="#dicas" class="mobile-nav flex-1 text-center py-2 text-xs font-semibold rounded-lg text-ink-500 hover:text-ink-800 transition-colors">Dicas</a>
+                    <a href="#instalacao"
+                        class="mobile-nav flex-1 text-center py-2 text-xs font-semibold rounded-lg text-ink-500 hover:text-ink-800 transition-colors">Instalação</a>
+                    <a href="#funcionalidades"
+                        class="mobile-nav flex-1 text-center py-2 text-xs font-semibold rounded-lg text-ink-500 hover:text-ink-800 transition-colors">Funcionalidades</a>
+                    <a href="#dicas"
+                        class="mobile-nav flex-1 text-center py-2 text-xs font-semibold rounded-lg text-ink-500 hover:text-ink-800 transition-colors">Dicas</a>
                 </div>
             </div>
 
@@ -249,49 +304,77 @@
                 <section id="instalacao" class="scroll-mt-28 mb-24">
                     <div class="reveal">
                         <div class="flex items-center gap-3 mb-2">
-                            <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-coral-400 text-white text-sm font-extrabold">1</span>
-                            <h2 class="text-3xl font-extrabold tracking-tight text-ink-950">Instalação Passo a Passo</h2>
+                            <span
+                                class="flex items-center justify-center w-8 h-8 rounded-lg bg-coral-400 text-white text-sm font-extrabold">1</span>
+                            <h2 class="text-3xl font-extrabold tracking-tight text-ink-950">Instalação Passo a Passo
+                            </h2>
                         </div>
-                        <div class="h-0.5 bg-gradient-to-r from-coral-400 via-coral-200 to-transparent rounded-full mb-3"></div>
+                        <div
+                            class="h-0.5 bg-gradient-to-r from-coral-400 via-coral-200 to-transparent rounded-full mb-3">
+                        </div>
                         <p class="text-base text-ink-500 leading-relaxed max-w-xl mb-10">
-                            Para começar a usar o <strong class="text-ink-700">MySide Image Fetcher</strong>, siga as etapas abaixo. O processo leva menos de 2 minutos.
+                            Para começar a usar o <strong class="text-ink-700">MySide Image Fetcher</strong>, siga as
+                            etapas abaixo. O processo leva menos de 2 minutos.
                         </p>
                     </div>
 
                     <!-- Steps -->
                     <div class="space-y-6">
                         <!-- Step 1 -->
-                        <div class="reveal step-card group relative pl-14 pr-6 py-6 bg-white border border-ink-100 rounded-2xl">
+                        <div
+                            class="reveal step-card group relative pl-14 pr-6 py-6 bg-white border border-ink-100 rounded-2xl">
                             <div class="absolute left-5 top-6 step-line">
-                                <div class="relative z-10 w-8 h-8 rounded-full bg-coral-400 text-white flex items-center justify-center text-sm font-bold shadow-md shadow-coral-400/20">1</div>
+                                <div
+                                    class="relative z-10 w-8 h-8 rounded-full bg-coral-400 text-white flex items-center justify-center text-sm font-bold shadow-md shadow-coral-400/20">
+                                    1</div>
                             </div>
                             <h3 class="text-base font-bold text-ink-900 mb-1.5">Baixar o Projeto</h3>
                             <p class="text-sm text-ink-500 leading-relaxed mb-4">
-                                Acesse o <a href="https://drive.google.com/drive/folders/1NmK8ZVznXBxw8rfKul2g9aCUBNTsjd83?usp=drive_link" target="_blank" class="text-coral-400 hover:text-coral-500 font-semibold underline decoration-coral-200 underline-offset-2 hover:decoration-coral-400 transition-colors">Google Drive</a> para baixar o arquivo ZIP da extensão, ou clone o <a href="https://github.com/mscarpenter-myside/image-fetcher" target="_blank" class="text-coral-400 hover:text-coral-500 font-semibold underline decoration-coral-200 underline-offset-2 hover:decoration-coral-400 transition-colors">repositório GitHub</a>.
+                                Acesse o <a
+                                    href="https://drive.google.com/drive/folders/1NmK8ZVznXBxw8rfKul2g9aCUBNTsjd83?usp=drive_link"
+                                    target="_blank"
+                                    class="text-coral-400 hover:text-coral-500 font-semibold underline decoration-coral-200 underline-offset-2 hover:decoration-coral-400 transition-colors">Google
+                                    Drive</a> para baixar o arquivo ZIP da extensão, ou clone o <a
+                                    href="https://github.com/mscarpenter-myside/image-fetcher" target="_blank"
+                                    class="text-coral-400 hover:text-coral-500 font-semibold underline decoration-coral-200 underline-offset-2 hover:decoration-coral-400 transition-colors">repositório
+                                    GitHub</a>.
                             </p>
                             <a href="https://drive.google.com/drive/folders/1NmK8ZVznXBxw8rfKul2g9aCUBNTsjd83?usp=drive_link"
-                               target="_blank"
-                               class="inline-flex items-center gap-2 px-5 py-2.5 bg-ink-950 hover:bg-ink-800 text-white text-xs font-bold rounded-lg transition-all duration-200 shadow-sm hover:shadow-md">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                                Baixar Extensão 
+                                target="_blank"
+                                class="inline-flex items-center gap-2 px-5 py-2.5 bg-ink-950 hover:bg-ink-800 text-white text-xs font-bold rounded-lg transition-all duration-200 shadow-sm hover:shadow-md">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                                Baixar Extensão
                             </a>
                         </div>
 
                         <!-- Step 2 -->
-                        <div class="reveal step-card group relative pl-14 pr-6 py-6 bg-white border border-ink-100 rounded-2xl">
+                        <div
+                            class="reveal step-card group relative pl-14 pr-6 py-6 bg-white border border-ink-100 rounded-2xl">
                             <div class="absolute left-5 top-6 step-line">
-                                <div class="relative z-10 w-8 h-8 rounded-full bg-coral-400 text-white flex items-center justify-center text-sm font-bold shadow-md shadow-coral-400/20">2</div>
+                                <div
+                                    class="relative z-10 w-8 h-8 rounded-full bg-coral-400 text-white flex items-center justify-center text-sm font-bold shadow-md shadow-coral-400/20">
+                                    2</div>
                             </div>
                             <h3 class="text-base font-bold text-ink-900 mb-1.5">Descompactar</h3>
                             <p class="text-sm text-ink-500 leading-relaxed">
-                                Extraia o conteúdo do arquivo <code class="px-1.5 py-0.5 bg-ink-100 text-ink-700 rounded text-xs font-mono font-medium">.zip</code> em uma pasta de sua preferência no computador (ex: <code class="px-1.5 py-0.5 bg-ink-100 text-ink-700 rounded text-xs font-mono font-medium">Documentos/Extensoes/MySide</code>).
+                                Extraia o conteúdo do arquivo <code
+                                    class="px-1.5 py-0.5 bg-ink-100 text-ink-700 rounded text-xs font-mono font-medium">.zip</code>
+                                em uma pasta de sua preferência no computador (ex: <code
+                                    class="px-1.5 py-0.5 bg-ink-100 text-ink-700 rounded text-xs font-mono font-medium">Documentos/Extensoes/MySide</code>).
                             </p>
                         </div>
 
                         <!-- Step 3 -->
-                        <div class="reveal step-card group relative pl-14 pr-6 py-6 bg-white border border-ink-100 rounded-2xl">
+                        <div
+                            class="reveal step-card group relative pl-14 pr-6 py-6 bg-white border border-ink-100 rounded-2xl">
                             <div class="absolute left-5 top-6 step-line">
-                                <div class="relative z-10 w-8 h-8 rounded-full bg-coral-400 text-white flex items-center justify-center text-sm font-bold shadow-md shadow-coral-400/20">3</div>
+                                <div
+                                    class="relative z-10 w-8 h-8 rounded-full bg-coral-400 text-white flex items-center justify-center text-sm font-bold shadow-md shadow-coral-400/20">
+                                    3</div>
                             </div>
                             <h3 class="text-base font-bold text-ink-900 mb-1.5">Abrir o Chrome</h3>
                             <p class="text-sm text-ink-500 leading-relaxed mb-4">
@@ -299,46 +382,69 @@
                             </p>
                             <!-- Code block -->
                             <div class="flex items-center justify-between bg-ink-950 rounded-xl px-5 py-3.5 group/code">
-                                <code class="font-mono text-sm text-ink-200 font-medium select-all">chrome://extensions/</code>
+                                <code
+                                    class="font-mono text-sm text-ink-200 font-medium select-all">chrome://extensions/</code>
                                 <button onclick="copyText('chrome://extensions/', this)"
-                                        class="flex items-center gap-1.5 px-3 py-1.5 bg-ink-800 hover:bg-ink-700 text-ink-300 hover:text-white text-[11px] font-semibold rounded-lg transition-all duration-200">
-                                    <svg class="w-3.5 h-3.5 copy-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                                    <svg class="w-3.5 h-3.5 check-icon hidden" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                    class="flex items-center gap-1.5 px-3 py-1.5 bg-ink-800 hover:bg-ink-700 text-ink-300 hover:text-white text-[11px] font-semibold rounded-lg transition-all duration-200">
+                                    <svg class="w-3.5 h-3.5 copy-icon" fill="none" stroke="currentColor"
+                                        stroke-width="2" viewBox="0 0 24 24">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" />
+                                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+                                    </svg>
+                                    <svg class="w-3.5 h-3.5 check-icon hidden" fill="none" stroke="currentColor"
+                                        stroke-width="2.5" viewBox="0 0 24 24">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
                                     <span class="copy-label">Copiar</span>
                                 </button>
                             </div>
                         </div>
 
                         <!-- Step 4 -->
-                        <div class="reveal step-card group relative pl-14 pr-6 py-6 bg-white border border-ink-100 rounded-2xl">
+                        <div
+                            class="reveal step-card group relative pl-14 pr-6 py-6 bg-white border border-ink-100 rounded-2xl">
                             <div class="absolute left-5 top-6 step-line">
-                                <div class="relative z-10 w-8 h-8 rounded-full bg-coral-400 text-white flex items-center justify-center text-sm font-bold shadow-md shadow-coral-400/20">4</div>
+                                <div
+                                    class="relative z-10 w-8 h-8 rounded-full bg-coral-400 text-white flex items-center justify-center text-sm font-bold shadow-md shadow-coral-400/20">
+                                    4</div>
                             </div>
                             <h3 class="text-base font-bold text-ink-900 mb-1.5">Modo do Desenvolvedor</h3>
                             <p class="text-sm text-ink-500 leading-relaxed">
-                                No canto superior direito da página de extensões, ative a chave <strong class="text-ink-700">"Modo do desenvolvedor"</strong>.
+                                No canto superior direito da página de extensões, ative a chave <strong
+                                    class="text-ink-700">"Modo do desenvolvedor"</strong>.
                             </p>
                         </div>
 
                         <!-- Step 5 -->
-                        <div class="reveal step-card group relative pl-14 pr-6 py-6 bg-white border border-ink-100 rounded-2xl">
+                        <div
+                            class="reveal step-card group relative pl-14 pr-6 py-6 bg-white border border-ink-100 rounded-2xl">
                             <div class="absolute left-5 top-6 step-line">
-                                <div class="relative z-10 w-8 h-8 rounded-full bg-coral-400 text-white flex items-center justify-center text-sm font-bold shadow-md shadow-coral-400/20">5</div>
+                                <div
+                                    class="relative z-10 w-8 h-8 rounded-full bg-coral-400 text-white flex items-center justify-center text-sm font-bold shadow-md shadow-coral-400/20">
+                                    5</div>
                             </div>
                             <h3 class="text-base font-bold text-ink-900 mb-1.5">Carregar Extensão</h3>
                             <p class="text-sm text-ink-500 leading-relaxed">
-                                Clique no botão <strong class="text-ink-700">"Carregar sem compactação"</strong> no canto superior esquerdo. Selecione a pasta onde você descompactou os arquivos — a pasta que contém o arquivo <code class="px-1.5 py-0.5 bg-ink-100 text-ink-700 rounded text-xs font-mono font-medium">manifest.json</code>.
+                                Clique no botão <strong class="text-ink-700">"Carregar sem compactação"</strong> no
+                                canto superior esquerdo. Selecione a pasta onde você descompactou os arquivos — a pasta
+                                que contém o arquivo <code
+                                    class="px-1.5 py-0.5 bg-ink-100 text-ink-700 rounded text-xs font-mono font-medium">manifest.json</code>.
                             </p>
                         </div>
 
                         <!-- Step 6 -->
-                        <div class="reveal step-card group relative pl-14 pr-6 py-6 bg-white border border-ink-100 rounded-2xl">
+                        <div
+                            class="reveal step-card group relative pl-14 pr-6 py-6 bg-white border border-ink-100 rounded-2xl">
                             <div class="absolute left-5 top-6">
-                                <div class="relative z-10 w-8 h-8 rounded-full bg-coral-400 text-white flex items-center justify-center text-sm font-bold shadow-md shadow-coral-400/20">6</div>
+                                <div
+                                    class="relative z-10 w-8 h-8 rounded-full bg-coral-400 text-white flex items-center justify-center text-sm font-bold shadow-md shadow-coral-400/20">
+                                    6</div>
                             </div>
                             <h3 class="text-base font-bold text-ink-900 mb-1.5">Fixar a Extensão</h3>
                             <p class="text-sm text-ink-500 leading-relaxed">
-                                Clique no ícone de <strong class="text-ink-700">Extensões</strong> (peça de quebra-cabeça) ao lado da barra de endereços do Chrome e clique no pin ao lado do <strong class="text-ink-700">MySide Image Fetcher</strong> para fixá-lo permanentemente.
+                                Clique no ícone de <strong class="text-ink-700">Extensões</strong> (peça de
+                                quebra-cabeça) ao lado da barra de endereços do Chrome e clique no pin ao lado do
+                                <strong class="text-ink-700">MySide Image Fetcher</strong> para fixá-lo permanentemente.
                             </p>
                         </div>
                     </div>
@@ -351,31 +457,47 @@
                 <section id="funcionalidades" class="scroll-mt-28 mb-24">
                     <div class="reveal">
                         <div class="flex items-center gap-3 mb-2">
-                            <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-coral-400 text-white text-sm font-extrabold">2</span>
+                            <span
+                                class="flex items-center justify-center w-8 h-8 rounded-lg bg-coral-400 text-white text-sm font-extrabold">2</span>
                             <h2 class="text-3xl font-extrabold tracking-tight text-ink-950">Como Utilizar</h2>
                         </div>
-                        <div class="h-0.5 bg-gradient-to-r from-coral-400 via-coral-200 to-transparent rounded-full mb-10"></div>
+                        <div
+                            class="h-0.5 bg-gradient-to-r from-coral-400 via-coral-200 to-transparent rounded-full mb-10">
+                        </div>
                     </div>
 
                     <!-- Sub: Capturando Imagens -->
                     <div class="reveal mb-12">
                         <h3 class="flex items-center gap-2 text-lg font-bold text-ink-900 mb-4">
-                            <svg class="w-5 h-5 text-coral-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                            <svg class="w-5 h-5 text-coral-400" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <polyline points="21 15 16 10 5 21" />
+                            </svg>
                             Capturando Imagens
                         </h3>
-                        <p class="text-sm text-ink-500 mb-5"><a href="#google-imagens-box" class="text-coral-400 hover:text-coral-500 font-semibold underline decoration-coral-200 underline-offset-2 hover:decoration-coral-400 transition-colors">Navegue em qualquer site</a> e, ao encontrar uma imagem que deseja baixar:</p>
+                        <p class="text-sm text-ink-500 mb-5"><a href="#google-imagens-box"
+                                class="text-coral-400 hover:text-coral-500 font-semibold underline decoration-coral-200 underline-offset-2 hover:decoration-coral-400 transition-colors">Navegue
+                                em qualquer site</a> e, ao encontrar uma imagem que deseja baixar:</p>
                         <div class="space-y-3">
                             <div class="flex items-start gap-3">
-                                <span class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-coral-50 text-coral-400 flex items-center justify-center text-xs font-bold">1</span>
-                                <p class="text-sm text-ink-600">Clique com o <strong class="text-ink-800">botão direito</strong> sobre a imagem.</p>
+                                <span
+                                    class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-coral-50 text-coral-400 flex items-center justify-center text-xs font-bold">1</span>
+                                <p class="text-sm text-ink-600">Clique com o <strong class="text-ink-800">botão
+                                        direito</strong> sobre a imagem.</p>
                             </div>
                             <div class="flex items-start gap-3">
-                                <span class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-coral-50 text-coral-400 flex items-center justify-center text-xs font-bold">2</span>
-                                <p class="text-sm text-ink-600">Selecione a opção <strong class="text-ink-800">"Enviar para MySide Image Fetcher"</strong>.</p>
+                                <span
+                                    class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-coral-50 text-coral-400 flex items-center justify-center text-xs font-bold">2</span>
+                                <p class="text-sm text-ink-600">Selecione a opção <strong class="text-ink-800">"Enviar
+                                        para MySide Image Fetcher"</strong>.</p>
                             </div>
                             <div class="flex items-start gap-3">
-                                <span class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-coral-50 text-coral-400 flex items-center justify-center text-xs font-bold">3</span>
-                                <p class="text-sm text-ink-600">O painel lateral abrirá automaticamente com a imagem carregada.</p>
+                                <span
+                                    class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-coral-50 text-coral-400 flex items-center justify-center text-xs font-bold">3</span>
+                                <p class="text-sm text-ink-600">O painel lateral abrirá automaticamente com a imagem
+                                    carregada.</p>
                             </div>
                         </div>
                     </div>
@@ -383,41 +505,63 @@
                     <!-- Sub: Nomenclatura SEO -->
                     <div class="reveal mb-12">
                         <h3 class="flex items-center gap-2 text-lg font-bold text-ink-900 mb-4">
-                            <svg class="w-5 h-5 text-coral-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+                            <svg class="w-5 h-5 text-coral-400" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                            </svg>
                             Configurando a Nomenclatura SEO
                         </h3>
-                        <p class="text-sm text-ink-500 mb-5">No painel lateral, você encontrará os campos para processamento:</p>
+                        <p class="text-sm text-ink-500 mb-5">No painel lateral, você encontrará os campos para
+                            processamento:</p>
                         <div class="space-y-4">
                             <div class="flex items-start gap-3 p-4 bg-ink-50 rounded-xl">
-                                <span class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-coral-400 text-white flex items-center justify-center text-xs font-bold">1</span>
+                                <span
+                                    class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-coral-400 text-white flex items-center justify-center text-xs font-bold">1</span>
                                 <div>
                                     <p class="text-sm font-semibold text-ink-800 mb-0.5">Tipo de Imagem</p>
-                                    <p class="text-sm text-ink-500">Selecione entre <strong class="text-ink-700">Capa</strong> (máx 100kb) ou <strong class="text-ink-700">Corpo</strong> (máx 150kb). A compressão ideal é aplicada automaticamente.</p>
+                                    <p class="text-sm text-ink-500">Selecione entre <strong
+                                            class="text-ink-700">Capa</strong> (máx 100kb) ou <strong
+                                            class="text-ink-700">Corpo</strong> (máx 150kb). A compressão ideal é
+                                        aplicada automaticamente.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3 p-4 bg-ink-50 rounded-xl">
-                                <span class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-coral-400 text-white flex items-center justify-center text-xs font-bold">2</span>
+                                <span
+                                    class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-coral-400 text-white flex items-center justify-center text-xs font-bold">2</span>
                                 <div>
                                     <p class="text-sm font-semibold text-ink-800 mb-0.5">Descrição (Opcional)</p>
-                                    <p class="text-sm text-ink-500">Dois campos para adicionar detalhes descritivos da imagem, como tipo de vista ou nome do empreendimento.</p>
+                                    <p class="text-sm text-ink-500">Dois campos para adicionar detalhes descritivos da
+                                        imagem, como tipo de vista ou nome do empreendimento.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3 p-4 bg-ink-50 rounded-xl">
-                                <span class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-coral-400 text-white flex items-center justify-center text-xs font-bold">3</span>
+                                <span
+                                    class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-coral-400 text-white flex items-center justify-center text-xs font-bold">3</span>
                                 <div>
                                     <p class="text-sm font-semibold text-ink-800 mb-1">Bairro e Cidade</p>
                                     <ul class="space-y-2">
                                         <li class="flex items-start gap-2 text-sm text-ink-500">
-                                            <span class="mt-1 w-1.5 h-1.5 rounded-full bg-coral-300 flex-shrink-0"></span>
-                                            <span><strong class="text-ink-700">Autocomplete:</strong> Sugestões aparecem conforme você digita. Confirme com <code class="px-1 py-0.5 bg-white text-ink-700 rounded text-xs font-mono">Tab</code> ou <code class="px-1 py-0.5 bg-white text-ink-700 rounded text-xs font-mono">Enter</code>.</span>
+                                            <span
+                                                class="mt-1 w-1.5 h-1.5 rounded-full bg-coral-300 flex-shrink-0"></span>
+                                            <span><strong class="text-ink-700">Autocomplete:</strong> Sugestões aparecem
+                                                conforme você digita. Confirme com <code
+                                                    class="px-1 py-0.5 bg-white text-ink-700 rounded text-xs font-mono">Tab</code>
+                                                ou <code
+                                                    class="px-1 py-0.5 bg-white text-ink-700 rounded text-xs font-mono">Enter</code>.</span>
                                         </li>
                                         <li class="flex items-start gap-2 text-sm text-ink-500">
-                                            <span class="mt-1 w-1.5 h-1.5 rounded-full bg-coral-300 flex-shrink-0"></span>
-                                            <span><strong class="text-ink-700">Auto-Preenchimento:</strong> Cidade preenchida automaticamente para bairros únicos na base.</span>
+                                            <span
+                                                class="mt-1 w-1.5 h-1.5 rounded-full bg-coral-300 flex-shrink-0"></span>
+                                            <span><strong class="text-ink-700">Auto-Preenchimento:</strong> Cidade
+                                                preenchida automaticamente para bairros únicos na base.</span>
                                         </li>
                                         <li class="flex items-start gap-2 text-sm text-ink-500">
-                                            <span class="mt-1 w-1.5 h-1.5 rounded-full bg-coral-300 flex-shrink-0"></span>
-                                            <span><strong class="text-ink-700">City Picker:</strong> Seletor visual para bairros presentes em múltiplas cidades, com navegação por teclado.</span>
+                                            <span
+                                                class="mt-1 w-1.5 h-1.5 rounded-full bg-coral-300 flex-shrink-0"></span>
+                                            <span><strong class="text-ink-700">City Picker:</strong> Seletor visual para
+                                                bairros presentes em múltiplas cidades, com navegação por
+                                                teclado.</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -428,26 +572,40 @@
                     <!-- Sub: Processar e Baixar -->
                     <div class="reveal">
                         <h3 class="flex items-center gap-2 text-lg font-bold text-ink-900 mb-4">
-                            <svg class="w-5 h-5 text-coral-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                            <svg class="w-5 h-5 text-coral-400" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
                             Processar e Baixar
                         </h3>
-                        <p class="text-sm text-ink-500 mb-5">Clique no botão <strong class="text-ink-700">"Processar e Baixar"</strong>. A extensão irá:</p>
+                        <p class="text-sm text-ink-500 mb-5">Clique no botão <strong class="text-ink-700">"Processar e
+                                Baixar"</strong>. A extensão irá:</p>
                         <div class="grid sm:grid-cols-2 gap-3">
                             <div class="flex items-start gap-3 p-4 bg-white border border-ink-100 rounded-xl">
-                                <span class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-ink-950 text-white flex items-center justify-center text-xs font-bold">1</span>
-                                <p class="text-sm text-ink-600">Redimensionar para exatamente <strong class="text-ink-800">747px</strong> de largura</p>
+                                <span
+                                    class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-ink-950 text-white flex items-center justify-center text-xs font-bold">1</span>
+                                <p class="text-sm text-ink-600">Redimensionar para exatamente <strong
+                                        class="text-ink-800">747px</strong> de largura</p>
                             </div>
                             <div class="flex items-start gap-3 p-4 bg-white border border-ink-100 rounded-xl">
-                                <span class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-ink-950 text-white flex items-center justify-center text-xs font-bold">2</span>
-                                <p class="text-sm text-ink-600">Comprimir para o limite selecionado com <strong class="text-ink-800">qualidade máxima</strong></p>
+                                <span
+                                    class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-ink-950 text-white flex items-center justify-center text-xs font-bold">2</span>
+                                <p class="text-sm text-ink-600">Comprimir para o limite selecionado com <strong
+                                        class="text-ink-800">qualidade máxima</strong></p>
                             </div>
                             <div class="flex items-start gap-3 p-4 bg-white border border-ink-100 rounded-xl">
-                                <span class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-ink-950 text-white flex items-center justify-center text-xs font-bold">3</span>
-                                <p class="text-sm text-ink-600">Renomear como <code class="px-1 py-0.5 bg-ink-50 text-ink-700 rounded text-xs font-mono">descricao-bairro-cidade.jpg</code></p>
+                                <span
+                                    class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-ink-950 text-white flex items-center justify-center text-xs font-bold">3</span>
+                                <p class="text-sm text-ink-600">Renomear como <code
+                                        class="px-1 py-0.5 bg-ink-50 text-ink-700 rounded text-xs font-mono">descricao-bairro-cidade.jpg</code>
+                                </p>
                             </div>
                             <div class="flex items-start gap-3 p-4 bg-white border border-ink-100 rounded-xl">
-                                <span class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-ink-950 text-white flex items-center justify-center text-xs font-bold">4</span>
-                                <p class="text-sm text-ink-600">Abrir a janela de <strong class="text-ink-800">salvamento</strong> do sistema operacional</p>
+                                <span
+                                    class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-ink-950 text-white flex items-center justify-center text-xs font-bold">4</span>
+                                <p class="text-sm text-ink-600">Abrir a janela de <strong
+                                        class="text-ink-800">salvamento</strong> do sistema operacional</p>
                             </div>
                         </div>
                     </div>
@@ -460,48 +618,81 @@
                 <section id="dicas" class="scroll-mt-28 mb-24">
                     <div class="reveal">
                         <div class="flex items-center gap-3 mb-2">
-                            <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-coral-400 text-white text-sm font-extrabold">3</span>
+                            <span
+                                class="flex items-center justify-center w-8 h-8 rounded-lg bg-coral-400 text-white text-sm font-extrabold">3</span>
                             <h2 class="text-3xl font-extrabold tracking-tight text-ink-950">Dicas</h2>
                         </div>
-                        <div class="h-0.5 bg-gradient-to-r from-coral-400 via-coral-200 to-transparent rounded-full mb-10"></div>
+                        <div
+                            class="h-0.5 bg-gradient-to-r from-coral-400 via-coral-200 to-transparent rounded-full mb-10">
+                        </div>
                     </div>
 
                     <div class="space-y-5">
                         <!-- Tip: Temas -->
-                        <div class="reveal group flex gap-5 p-6 bg-white border border-ink-100 rounded-2xl transition-all duration-300 hover:border-coral-200 hover:shadow-lg hover:shadow-coral-400/5">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center shadow-lg shadow-violet-500/20 group-hover:scale-105 transition-transform duration-300">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+                        <div
+                            class="reveal group flex gap-5 p-6 bg-white border border-ink-100 rounded-2xl transition-all duration-300 hover:border-coral-200 hover:shadow-lg hover:shadow-coral-400/5">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center shadow-lg shadow-violet-500/20 group-hover:scale-105 transition-transform duration-300">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                                </svg>
                             </div>
                             <div>
                                 <h4 class="text-base font-bold text-ink-900 mb-1">Temas Personalizados</h4>
                                 <p class="text-sm text-ink-500 leading-relaxed">
-                                    No topo do painel, alterne entre os temas <strong class="text-ink-700">Dark</strong>, <strong class="text-ink-700">Light</strong> e o <strong class="text-ink-700">MySide</strong> theme.
+                                    No topo do painel, alterne entre os temas <strong
+                                        class="text-ink-700">Dark</strong>, <strong class="text-ink-700">Light</strong>
+                                    e o <strong class="text-ink-700">MySide</strong> theme.
                                 </p>
                             </div>
                         </div>
 
                         <!-- Tip: Correção Rápida -->
-                        <div class="reveal group flex gap-5 p-6 bg-white border border-ink-100 rounded-2xl transition-all duration-300 hover:border-coral-200 hover:shadow-lg hover:shadow-coral-400/5">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-400/20 group-hover:scale-105 transition-transform duration-300">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        <div
+                            class="reveal group flex gap-5 p-6 bg-white border border-ink-100 rounded-2xl transition-all duration-300 hover:border-coral-200 hover:shadow-lg hover:shadow-coral-400/5">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-400/20 group-hover:scale-105 transition-transform duration-300">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
                             </div>
                             <div>
                                 <h4 class="text-base font-bold text-ink-900 mb-1">Correção Rápida</h4>
                                 <p class="text-sm text-ink-500 leading-relaxed">
-                                    Errou a cidade no seletor? Clique novamente no campo <strong class="text-ink-700">Cidade</strong> para reabrir as opções disponíveis para aquele bairro — sem precisar redigitar nada.
+                                    Errou a cidade no seletor? Clique novamente no campo <strong
+                                        class="text-ink-700">Cidade</strong> para reabrir as opções disponíveis para
+                                    aquele bairro — sem precisar redigitar nada.
                                 </p>
                             </div>
                         </div>
 
                         <!-- Tip: Atalhos -->
-                        <div class="reveal group flex gap-5 p-6 bg-white border border-ink-100 rounded-2xl transition-all duration-300 hover:border-coral-200 hover:shadow-lg hover:shadow-coral-400/5">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-400/20 group-hover:scale-105 transition-transform duration-300">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                        <div
+                            class="reveal group flex gap-5 p-6 bg-white border border-ink-100 rounded-2xl transition-all duration-300 hover:border-coral-200 hover:shadow-lg hover:shadow-coral-400/5">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-400/20 group-hover:scale-105 transition-transform duration-300">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                </svg>
                             </div>
                             <div>
                                 <h4 class="text-base font-bold text-ink-900 mb-1">Atalhos de Teclado</h4>
                                 <p class="text-sm text-ink-500 leading-relaxed">
-                                    Use <code class="px-1.5 py-0.5 bg-ink-100 text-ink-700 rounded text-xs font-mono font-medium">Tab</code> para aceitar sugestões, <code class="px-1.5 py-0.5 bg-ink-100 text-ink-700 rounded text-xs font-mono font-medium">↑</code> <code class="px-1.5 py-0.5 bg-ink-100 text-ink-700 rounded text-xs font-mono font-medium">↓</code> para navegar no City Picker, e <code class="px-1.5 py-0.5 bg-ink-100 text-ink-700 rounded text-xs font-mono font-medium">Enter</code> para confirmar.
+                                    Use <code
+                                        class="px-1.5 py-0.5 bg-ink-100 text-ink-700 rounded text-xs font-mono font-medium">Tab</code>
+                                    para aceitar sugestões, <code
+                                        class="px-1.5 py-0.5 bg-ink-100 text-ink-700 rounded text-xs font-mono font-medium">↑</code>
+                                    <code
+                                        class="px-1.5 py-0.5 bg-ink-100 text-ink-700 rounded text-xs font-mono font-medium">↓</code>
+                                    para navegar no City Picker, e <code
+                                        class="px-1.5 py-0.5 bg-ink-100 text-ink-700 rounded text-xs font-mono font-medium">Enter</code>
+                                    para confirmar.
                                 </p>
                             </div>
                         </div>
@@ -524,8 +715,11 @@
                     <span class="font-bold text-coral-400">MySide</span>
                 </div>
                 <div class="flex items-center gap-6">
-                    <a href="https://github.com/mscarpenter-myside/image-fetcher" target="_blank" class="text-sm text-ink-400 hover:text-coral-400 transition-colors font-medium">GitHub</a>
-                    <a href="https://drive.google.com/drive/folders/1NmK8ZVznXBxw8rfKul2g9aCUBNTsjd83?usp=drive_link" target="_blank" class="text-sm text-ink-400 hover:text-coral-400 transition-colors font-medium">Download</a>
+                    <a href="https://github.com/mscarpenter-myside/image-fetcher" target="_blank"
+                        class="text-sm text-ink-400 hover:text-coral-400 transition-colors font-medium">GitHub</a>
+                    <a href="https://drive.google.com/drive/folders/1NmK8ZVznXBxw8rfKul2g9aCUBNTsjd83?usp=drive_link"
+                        target="_blank"
+                        class="text-sm text-ink-400 hover:text-coral-400 transition-colors font-medium">Download</a>
                 </div>
             </div>
             <p class="text-center text-xs text-ink-300 mt-6">MySide.</p>
@@ -534,8 +728,12 @@
 
     <!-- Toast -->
     <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] hidden">
-        <div class="flex items-center gap-2 px-4 py-2.5 bg-ink-950 text-white text-sm font-medium rounded-full shadow-xl">
-            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        <div
+            class="flex items-center gap-2 px-4 py-2.5 bg-ink-950 text-white text-sm font-medium rounded-full shadow-xl">
+            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5"
+                viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+            </svg>
             <span id="toastMsg">Copiado!</span>
         </div>
     </div>
