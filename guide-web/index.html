@@ -147,6 +147,20 @@
                     <p class="text-[10px] font-bold tracking-[0.15em] uppercase text-ink-400 mb-4 pl-4">Navegação</p>
                     <ul class="space-y-1">
                         <li>
+                            <a href="#video-tutorial"
+                                class="nav-link relative block pl-4 pr-3 py-2 rounded-r-lg text-sm font-medium text-ink-500 hover:text-ink-900 hover:bg-ink-50">
+                                <span class="flex items-center gap-2.5">
+                                    <span
+                                        class="w-5 h-5 rounded-md bg-ink-100 text-ink-500 flex items-center justify-center">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                    </span>
+                                    Vídeo
+                                </span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="#instalacao"
                                 class="nav-link relative block pl-4 pr-3 py-2 rounded-r-lg text-sm font-medium text-ink-500 hover:text-ink-900 hover:bg-ink-50">
                                 <span class="flex items-center gap-2.5">
@@ -212,6 +226,8 @@
             <div
                 class="lg:hidden sticky top-14 z-40 -mx-6 px-6 py-3 bg-white/90 backdrop-blur-lg border-b border-ink-100">
                 <div class="flex gap-1 p-1 bg-ink-50 rounded-xl">
+                    <a href="#video-tutorial"
+                        class="mobile-nav flex-1 text-center py-2 text-xs font-semibold rounded-lg text-ink-500 hover:text-ink-800 transition-colors">Vídeo</a>
                     <a href="#instalacao"
                         class="mobile-nav flex-1 text-center py-2 text-xs font-semibold rounded-lg text-ink-500 hover:text-ink-800 transition-colors">Instalação</a>
                     <a href="#funcionalidades"
@@ -223,6 +239,56 @@
 
             <!-- CONTENT AREA -->
             <main class="min-w-0 pt-8 pb-24">
+
+                <!-- ═══════════════════════════════ -->
+                <!-- SECTION 0: VIDEO TUTORIAL      -->
+                <!-- ═══════════════════════════════ -->
+                <section id="video-tutorial" class="scroll-mt-28 mb-24">
+                    <div class="reveal">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span
+                                class="flex items-center justify-center w-8 h-8 rounded-lg bg-coral-400 text-white">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </span>
+                            <h2 class="text-3xl font-extrabold tracking-tight text-ink-950">Tutorial em Vídeo</h2>
+                        </div>
+                        <div
+                            class="h-0.5 bg-gradient-to-r from-coral-400 via-coral-200 to-transparent rounded-full mb-3">
+                        </div>
+                        <p class="text-base text-ink-500 leading-relaxed max-w-xl mb-10">
+                            Assista ao passo a passo completo de instalação e uso do <strong
+                                class="text-ink-700">MySide Image Fetcher</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Video player -->
+                    <div class="reveal">
+                        <div
+                            class="relative rounded-2xl overflow-hidden border border-ink-200 shadow-2xl shadow-ink-950/10 bg-ink-950">
+                            <!-- 16:9 aspect ratio wrapper -->
+                            <div class="relative w-full" style="padding-top: 56.25%;">
+                                <iframe
+                                    class="absolute inset-0 w-full h-full"
+                                    src="https://drive.google.com/file/d/1aQgl0Kf2UbqOrReWdXKCxc4oOVCLG-ml/preview"
+                                    title="MySide Image Fetcher — Tutorial de Instalação e Uso"
+                                    frameborder="0"
+                                    allow="autoplay"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-xs text-ink-400 flex items-center gap-2">
+                            <svg class="w-3.5 h-3.5 text-coral-400 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                            Tutorial completo · Instalação e uso da extensão passo a passo.
+                        </p>
+                    </div>
+                </section>
+
 
                 <!-- ═══════════════════════════════ -->
                 <!-- SECTION 1: INSTALAÇÃO          -->

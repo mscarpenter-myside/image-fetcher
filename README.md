@@ -5,7 +5,7 @@ Uma extensão para Google Chrome projetada para otimizar o fluxo de trabalho de 
 ---
 
 ### 📖 [Acessar Guia do Usuário](https://image-fetcher-one.vercel.app?_vercel_share=LW465n272D7IHUkcmN0bHkjWfiLor014)
-*Consulte o guia completo para instruções detalhadas de instalação e uso.*
+*Consulte o guia completo — inclui tutorial em vídeo passo a passo e instruções detalhadas de instalação e uso.*
 
 ---
 
@@ -27,7 +27,7 @@ Uma extensão para Google Chrome projetada para otimizar o fluxo de trabalho de 
 
 ## 🛠️ Instalação
 
-Para instruções detalhadas, consulte o **[Guia de Usuário](https://image-fetcher-one.vercel.app?_vercel_share=LW465n272D7IHUkcmN0bHkjWfiLor014)**.
+Para instruções detalhadas e o **tutorial em vídeo**, consulte o **[Guia de Usuário](https://image-fetcher-one.vercel.app?_vercel_share=LW465n272D7IHUkcmN0bHkjWfiLor014)**.
 
 ### Instalação Rápida:
 1. [Baixe o pacote myside-image-fetcher.zip](https://drive.google.com/drive/folders/1NmK8ZVznXBxw8rfKul2g9aCUBNTsjd83?usp=drive_link).
