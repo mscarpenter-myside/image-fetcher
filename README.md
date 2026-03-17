@@ -4,7 +4,8 @@ Uma extensão para Google Chrome projetada para otimizar o fluxo de trabalho de 
 
 ---
 
-### 📖 [Acessar Guia do Usuário (PDF)](./docs/guia-image-fetcher.pdf)
+### 📖 [Acessar Guia do Usuário (HTML Interativo)](./guide-web/index.html)
+### 📄 [Acessar Guia do Usuário (PDF)](./docs/guia-image-fetcher.pdf)
 *Consulte o guia completo para instruções detalhadas de instalação e uso.*
 
 ---
@@ -30,7 +31,7 @@ Uma extensão para Google Chrome projetada para otimizar o fluxo de trabalho de 
 Para instruções completas de como baixar, instalar e utilizar a extensão, consulte o nosso **[Guia de Usuário](./docs/guia-image-fetcher.pdf)**.
 
 ### Resumo rápido:
-- [Baixe o repositório](https://drive.google.com/drive/folders/1SnsAoE3Sx1T9oFIe6wOR8gLVyRwCe4UV?usp=drive_link).
+- [Baixe myside-image-fetcher.zip](https://drive.google.com/drive/folders/1SnsAoE3Sx1T9oFIe6wOR8gLVyRwCe4UV?usp=drive_link).
 - Acesse [chrome://extensions/](chrome://extensions/) no seu navegador.
 - Ative o **"Modo do desenvolvedor"**.
 - Clique em **"Carregar sem compactação"** e selecione a pasta raiz da extensão.
@@ -42,5 +43,3 @@ As chaves e tokens de API devem ser configurados em um arquivo `.env` na raiz do
 ## 📄 Licença
 
 Este projeto é de uso interno da MySide.
-
-**Engenharia de Conteúdo & Automação**  

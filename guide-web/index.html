@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Usuário | MySide Image Fetcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <img src="./logo.png" alt="MySide Logo" class="logo">
+                <div class="header-info">
+                    <span class="guide-title">GUIA DE USUÁRIO</span>
+                    <span class="separator">|</span>
+                    <span class="project-name">MYSIDE IMAGE FETCHER</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Cover Section -->
+        <section class="section-cover">
+            <div class="container">
+                <div class="cover-content">
+                    <h1 class="brand-logo">MySide</h1>
+                    <div class="coral-line-thick"></div>
+                    <div class="titles">
+                        <h2 class="main-title">Image Fetcher</h2>
+                        <h3 class="sub-title">Guia de Usuário</h3>
+                        <p class="tagline">Otimização de Imagens e SEO Imobiliário</p>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">Versão</span>
+                            <span class="value">1.0</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Plataforma</span>
+                            <span class="value">Google Chrome (extensão)</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Departamento</span>
+                            <span class="value">Engenharia de Conteúdo & Automação</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <span>Role para começar</span>
+                    <div class="arrow"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Navigation -->
+        <nav class="sticky-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="#instalacao">1. Instalação</a></li>
+                    <li><a href="#funcionalidades">2. Funcionalidades</a></li>
+                    <li><a href="#dicas">3. Dicas</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container main-content">
+            <!-- Section 1: Instalação -->
+            <section id="instalacao" class="guide-section">
+                <h2 class="section-title">1. Instalação Passo a Passo</h2>
+                <div class="coral-line"></div>
+                <p class="intro-text">Para começar a usar o <strong>MySide Image Fetcher</strong>, siga o guia abaixo:
+                </p>
+
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-num">1.</div>
+                        <div class="step-content">
+                            <h3>Baixar o Projeto</h3>
+                            <p>Acesse o <a
+                                    href="https://drive.google.com/drive/folders/1SnsAoE3Sx1T9oFIe6wOR8gLVyRwCe4UV?usp=drive_link"
+                                    target="_blank" class="coral-link">Google Drive</a> ou o <a
+                                    href="https://github.com/mscarpenter-myside/image-fetcher" target="_blank"
+                                    class="coral-link">Repositório GitHub</a> para obter os arquivos da extensão.</p>
+                            <a href="https://drive.google.com/drive/folders/1SnsAoE3Sx1T9oFIe6wOR8gLVyRwCe4UV?usp=drive_link"
+                                target="_blank" class="btn-primary">Baixar Extensão (Google Drive)</a>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">2.</div>
+                        <div class="step-content">
+                            <h3>Descompactar</h3>
+                            <p>Extraia o conteúdo do arquivo <code>.zip</code> em uma pasta de sua preferência no
+                                computador.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">3.</div>
+                        <div class="step-content">
+                            <h3>Abrir o Chrome</h3>
+                            <p>No navegador Google Chrome, copie e cole o endereço abaixo na barra de navegação:</p>
+                            <div class="copy-badge" id="chrome-ext-badge">
+                                <code class="mono-text">chrome://extensions/</code>
+                                <button class="btn-copy" data-copy="chrome://extensions/" title="Copiar">Copiar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">4.</div>
+                        <div class="step-content">
+                            <h3>Modo do Desenvolvedor</h3>
+                            <p>No canto superior direito da página, ative a chave <strong>"Modo do
+                                    desenvolvedor"</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">5.</div>
+                        <div class="step-content">
+                            <h3>Carregar Extensão</h3>
+                            <p>Clique no botão <strong>"Carregar sem compactação"</strong> que apareceu no canto
+                                superior esquerdo. Selecione a pasta onde você descompactou os arquivos (a pasta que
+                                contém o arquivo <code>manifest.json</code>).</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-num">6.</div>
+                        <div class="step-content">
+                            <h3>Fixar a Extensão</h3>
+                            <p>Clique no ícone de Extensões ao lado da barra de endereços do Chrome e clique no pin ao
+                                lado do <strong>MySide Image Fetcher</strong> para deixá-lo sempre visível.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Funcionalidades -->
+            <section id="funcionalidades" class="guide-section">
+                <h2 class="section-title">2. Como Utilizar as Funcionalidades</h2>
+                <div class="coral-line"></div>
+
+                <div class="sub-section">
+                    <h3>Capturando Imagens</h3>
+                    <p>Navegue em qualquer site e, ao encontrar uma imagem que deseja baixar:</p>
+                    <div class="inner-steps">
+                        <div class="inner-step"><span class="coral-dot">1.</span> Clique com o <strong>botão
+                                direito</strong> sobre a imagem.</div>
+                        <div class="inner-step"><span class="coral-dot">2.</span> Selecione a opção <strong>"Enviar para
+                                MySide Image Fetcher"</strong>.</div>
+                        <div class="inner-step"><span class="coral-dot">3.</span> O painel lateral abrirá
+                            automaticamente com a imagem carregada.</div>
+                    </div>
+                </div>
+
+                <div class="sub-section">
+                    <h3>Configurando a Nomenclatura SEO</h3>
+                    <p>No painel lateral, você encontrará os campos para processamento:</p>
+                    <div class="inner-steps">
+                        <div class="inner-step"><span class="coral-dot">1.</span> <strong>Tipo de Imagem:</strong>
+                            Selecione entre <strong>Capa</strong> (máx 100kb) ou <strong>Corpo</strong> (máx 150kb).
+                        </div>
+                        <div class="inner-step"><span class="coral-dot">2.</span> <strong>Descrição (Opcional):</strong>
+                            Campos para adicionar detalhes descritivos da imagem.</div>
+                        <div class="inner-step"><span class="coral-dot">3.</span> <strong>Bairro e Cidade:</strong>
+                            <ul class="sub-list">
+                                <li><strong>Autocomplete:</strong> Sugestões aparecem conforme você digita.</li>
+                                <li><strong>Auto-Preenchimento:</strong> Cidade preenchida automaticamente para bairros
+                                    únicos.</li>
+                                <li><strong>City Picker:</strong> Seletor visual para bairros em múltiplas cidades.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sub-section">
+                    <h3>Processar e Baixar</h3>
+                    <p>Clique no botão <strong>"Processar e Baixar"</strong>. A extensão irá:</p>
+                    <div class="inner-steps">
+                        <div class="inner-step"><span class="coral-dot">1.</span> Redimensionar para
+                            <strong>747px</strong> de largura.</div>
+                        <div class="inner-step"><span class="coral-dot">2.</span> Comprimir para o limite selecionado.
+                        </div>
+                        <div class="inner-step"><span class="coral-dot">3.</span> Renomear como
+                            <code>descricao-bairro-cidade.jpg</code>.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Dicas -->
+            <section id="dicas" class="guide-section">
+                <h2 class="section-title">3. Dicas</h2>
+                <div class="coral-line"></div>
+
+                <div class="tip-box">
+                    <div class="tip-accent"></div>
+                    <div class="tip-content">
+                        <h4 class="tip-title">Temas</h4>
+                        <p>No topo do painel, você pode alternar entre os temas <strong>Dark</strong>,
+                            <strong>Light</strong> e o oficial <strong>MySide</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-accent"></div>
+                    <div class="tip-content">
+                        <h4 class="tip-title">Correção Rápida</h4>
+                        <p>Errou a cidade? Clique no campo <strong>Cidade</strong> para reabrir as opções sem precisar
+                            redigitar o bairro.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-line"></div>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <span class="dept">Engenharia de Conteúdo & Automação</span>
+                    <span class="dot">·</span>
+                    <span class="brand-name">MySide</span>
+                    <span class="dot">·</span>
+                    <a href="https://github.com/mscarpenter-myside/image-fetcher" target="_blank"
+                        class="repo-link">Acessar Repositório</a>
+                </div>
+                <div class="copyright">
+                    MySide — Inteligência que move o mercado.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Texto copiado!</div>
+
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>
