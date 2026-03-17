@@ -402,7 +402,7 @@
 
         .form-row {
             display: grid;
-            grid-template-columns: 1fr 90px;
+            grid-template-columns: 1fr 1fr;
             gap: 8px;
         }
 
@@ -629,6 +629,47 @@
             color: var(--accent);
             font-weight: 600;
         }
+
+        /* ═══════════════════════════════════════════
+           CITY PICKER
+           ═══════════════════════════════════════════ */
+
+        .city-picker-wrapper {
+            position: relative;
+        }
+
+        .city-picker-list {
+            position: absolute;
+            top: calc(100% + 2px);
+            left: 0;
+            right: 0;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            z-index: 300;
+            display: none;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .city-picker-list.open {
+            display: block;
+        }
+
+        .city-picker-item {
+            padding: 8px 11px;
+            font-size: 12px;
+            cursor: pointer;
+            color: var(--text);
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .city-picker-item:hover,
+        .city-picker-item.selected {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
     </style>
 </head>
 
@@ -748,15 +789,18 @@
 
         <!-- SEO -->
         <div class="form-section">
-            <div class="section-title">SEO</div>
+            <div class="section-title">SEO · Nomenclatura</div>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="bairro">Bairro</label>
-                    <input type="text" id="bairro" placeholder="">
+                    <label for="cidade">Bairro</label>
+                    <input type="text" id="cidade" placeholder="savassi" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <label for="cidade">Cidade</label>
-                    <input type="text" id="cidade" placeholder="" maxlength="2">
+                    <label for="estado">Cidade</label>
+                    <div class="city-picker-wrapper">
+                        <input type="text" id="estado" placeholder="mg" autocomplete="off">
+                        <div class="city-picker-list" id="cityPickerList"></div>
+                    </div>
                 </div>
             </div>
         </div>
