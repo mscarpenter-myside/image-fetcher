@@ -340,7 +340,7 @@ def link(url, label=None):
 # BUILD DOCUMENT
 # ═══════════════════════════════════════════
 
-OUTPUT_PATH = "guia-image-fetcher.pdf"
+OUTPUT_PATH = "guide-image-fetcher.pdf"
 CONTENT_W = PAGE_W - 2 * MARGIN
 
 doc = BaseDocTemplate(
