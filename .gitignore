@@ -6,6 +6,10 @@
 # Build
 dist/
 build/
+node_modules/
+venv/
+.pytest_cache/
+__pycache__/
 
 # OS
 .DS_Store
@@ -15,6 +19,13 @@ Thumbs.db
 .vscode/
 *.code-workspace
 
-# Extension
+# Root Source Files (Ignored in favor of extension/ folder)
+/background.js
+/sidepanel.html
+/sidepanel.js
+/manifest.json
+/logo.png
+
+# Chromium/Zip artifacts
 *.pem
 *.crx
