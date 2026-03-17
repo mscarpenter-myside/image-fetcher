@@ -13,6 +13,8 @@ const downloadBtn = document.getElementById('downloadBtn');
 const statusBar = document.getElementById('statusBar');
 const cidadeInput = document.getElementById('cidade');
 const estadoInput = document.getElementById('estado');
+const descricao1Input = document.getElementById('descricao1');
+const descricao2Input = document.getElementById('descricao2');
 
 // Type toggle
 const typeCapa = document.getElementById('typeCapa');
@@ -138,8 +140,12 @@ function sanitizeString(str) {
 
 function generateFileName() {
     const parts = [];
+    const desc1 = descricao1Input.value.trim();
+    const desc2 = descricao2Input.value.trim();
+    if (desc1) parts.push(sanitizeString(desc1));
+    if (desc2) parts.push(sanitizeString(desc2));
     parts.push(sanitizeString(cidadeInput.value || 'bairro'));
-    parts.push(sanitizeString(estadoInput.value || 'cidade'));
+    if (estadoInput.value.trim()) parts.push(sanitizeString(estadoInput.value));
     return parts.join('-') + '.jpg';
 }
 
@@ -223,8 +229,8 @@ async function optimizeQuality(canvas, maxBytes) {
 async function processAndDownloadImage() {
     if (!currentImageUrl) return;
 
-    if (!cidadeInput.value || !estadoInput.value) {
-        showStatus('Preencha todos os campos de SEO.', 'error');
+    if (!cidadeInput.value) {
+        showStatus('Preencha o campo Bairro.', 'error');
         return;
     }
 
@@ -292,7 +298,7 @@ async function processAndDownloadImage() {
 // ═══════════════════════════════════════════
 
 const LOCATION_DATA = [
-    { slug: 'sp', label: 'São Paulo (SP)', neighborhoods: [
+    { slug: 'sao-paulo', label: 'São Paulo (SP)', neighborhoods: [
         { slug: 'itaim-bibi', label: 'Itaim Bibi' },
         { slug: 'pinheiros', label: 'Pinheiros' },
         { slug: 'jardins', label: 'Jardins' },
@@ -304,7 +310,7 @@ const LOCATION_DATA = [
         { slug: 'santana', label: 'Santana' },
         { slug: 'vila-andrade', label: 'Vila Andrade' },
     ]},
-    { slug: 'rj', label: 'Rio de Janeiro (RJ)', neighborhoods: [
+    { slug: 'rio-de-janeiro', label: 'Rio de Janeiro (RJ)', neighborhoods: [
         { slug: 'leblon', label: 'Leblon' },
         { slug: 'ipanema', label: 'Ipanema' },
         { slug: 'lagoa', label: 'Lagoa' },
@@ -316,7 +322,7 @@ const LOCATION_DATA = [
         { slug: 'recreio-dos-bandeirantes', label: 'Recreio dos Bandeirantes' },
         { slug: 'tijuca', label: 'Tijuca' },
     ]},
-    { slug: 'mg', label: 'Belo Horizonte (MG)', neighborhoods: [
+    { slug: 'belo-horizonte', label: 'Belo Horizonte (MG)', neighborhoods: [
         { slug: 'savassi', label: 'Savassi' },
         { slug: 'santo-agostinho', label: 'Santo Agostinho' },
         { slug: 'lourdes', label: 'Lourdes' },
@@ -328,7 +334,7 @@ const LOCATION_DATA = [
         { slug: 'serra', label: 'Serra' },
         { slug: 'buritis', label: 'Buritis' },
     ]},
-    { slug: 'df', label: 'Brasília (DF)', neighborhoods: [
+    { slug: 'brasilia', label: 'Brasília (DF)', neighborhoods: [
         { slug: 'setor-sudoeste', label: 'Setor Sudoeste' },
         { slug: 'asa-norte', label: 'Asa Norte' },
         { slug: 'asa-sul', label: 'Asa Sul' },
@@ -340,7 +346,7 @@ const LOCATION_DATA = [
         { slug: 'sobradinho', label: 'Sobradinho' },
         { slug: 'riacho-fundo', label: 'Riacho Fundo' },
     ]},
-    { slug: 'ba', label: 'Salvador (BA)', neighborhoods: [
+    { slug: 'salvador', label: 'Salvador (BA)', neighborhoods: [
         { slug: 'barra', label: 'Barra' },
         { slug: 'caminho-das-arvores', label: 'Caminho das Árvores' },
         { slug: 'ondina', label: 'Ondina' },
@@ -352,7 +358,7 @@ const LOCATION_DATA = [
         { slug: 'imbui', label: 'Imbuí' },
         { slug: 'itaigara', label: 'Itaigara' },
     ]},
-    { slug: 'ce', label: 'Fortaleza (CE)', neighborhoods: [
+    { slug: 'fortaleza', label: 'Fortaleza (CE)', neighborhoods: [
         { slug: 'meireles', label: 'Meireles' },
         { slug: 'aldeota', label: 'Aldeota' },
         { slug: 'engenheiro-luciano-cavalcante', label: 'Engenheiro Luciano Cavalcante' },
@@ -364,7 +370,7 @@ const LOCATION_DATA = [
         { slug: 'papicu', label: 'Papicu' },
         { slug: 'joaquim-tavora', label: 'Joaquim Távora' },
     ]},
-    { slug: 'pe', label: 'Recife (PE)', neighborhoods: [
+    { slug: 'recife', label: 'Recife (PE)', neighborhoods: [
         { slug: 'parnamirim', label: 'Parnamirim' },
         { slug: 'boa-viagem', label: 'Boa Viagem' },
         { slug: 'madalena', label: 'Madalena' },
@@ -376,7 +382,7 @@ const LOCATION_DATA = [
         { slug: 'espinheiro', label: 'Espinheiro' },
         { slug: 'cordeiro', label: 'Cordeiro' },
     ]},
-    { slug: 'rs', label: 'Porto Alegre (RS)', neighborhoods: [
+    { slug: 'porto-alegre', label: 'Porto Alegre (RS)', neighborhoods: [
         { slug: 'montserrat', label: 'Montserrat' },
         { slug: 'rio-branco', label: 'Rio Branco' },
         { slug: 'bela-vista', label: 'Bela Vista' },
@@ -388,7 +394,7 @@ const LOCATION_DATA = [
         { slug: 'santa-tereza', label: 'Santa Tereza' },
         { slug: 'nonoai', label: 'Nonoai' },
     ]},
-    { slug: 'pr', label: 'Curitiba (PR)', neighborhoods: [
+    { slug: 'curitiba', label: 'Curitiba (PR)', neighborhoods: [
         { slug: 'batel', label: 'Batel' },
         { slug: 'bigorrilho', label: 'Bigorrilho' },
         { slug: 'juveve', label: 'Juvevê' },
@@ -400,7 +406,7 @@ const LOCATION_DATA = [
         { slug: 'portao', label: 'Portão' },
         { slug: 'cidade-industrial-de-curitiba', label: 'Cidade Industrial de Curitiba' },
     ]},
-    { slug: 'sc', label: 'Florianópolis (SC)', neighborhoods: [
+    { slug: 'florianopolis', label: 'Florianópolis (SC)', neighborhoods: [
         { slug: 'agronomica', label: 'Agronômica' },
         { slug: 'centro', label: 'Centro' },
         { slug: 'corrego-grande', label: 'Córrego Grande' },
@@ -412,7 +418,7 @@ const LOCATION_DATA = [
         { slug: 'ingleses-do-rio-vermelho', label: 'Ingleses do Rio Vermelho' },
         { slug: 'capoeiras', label: 'Capoeiras' },
     ]},
-    { slug: 'es', label: 'Vitória (ES)', neighborhoods: [
+    { slug: 'vitoria', label: 'Vitória (ES)', neighborhoods: [
         { slug: 'enseada-do-sua', label: 'Enseada do Suá' },
         { slug: 'praia-do-canto', label: 'Praia do Canto' },
         { slug: 'mata-da-praia', label: 'Mata da Praia' },
@@ -424,7 +430,7 @@ const LOCATION_DATA = [
         { slug: 'bento-ferreira', label: 'Bento Ferreira' },
         { slug: 'jardim-da-penha', label: 'Jardim da Penha' },
     ]},
-    { slug: 'go', label: 'Goiânia (GO)', neighborhoods: [
+    { slug: 'goiania', label: 'Goiânia (GO)', neighborhoods: [
         { slug: 'marista', label: 'Marista' },
         { slug: 'sul', label: 'Sul' },
         { slug: 'bueno', label: 'Bueno' },
@@ -436,7 +442,7 @@ const LOCATION_DATA = [
         { slug: 'nova-suica', label: 'Nova Suíça' },
         { slug: 'central', label: 'Central' },
     ]},
-    { slug: 'pb', label: 'João Pessoa (PB)', neighborhoods: [
+    { slug: 'joao-pessoa', label: 'João Pessoa (PB)', neighborhoods: [
         { slug: 'cabo-branco', label: 'Cabo Branco' },
         { slug: 'jardim-oceania', label: 'Jardim Oceania' },
         { slug: 'altiplano-cabo-branco', label: 'Altiplano Cabo Branco' },
@@ -448,7 +454,7 @@ const LOCATION_DATA = [
         { slug: 'portal-do-sol', label: 'Portal do Sol' },
         { slug: 'jardim-cidade-universitaria', label: 'Jardim Cidade Universitária' },
     ]},
-    { slug: 'ms', label: 'Campo Grande (MS)', neighborhoods: [
+    { slug: 'campo-grande', label: 'Campo Grande (MS)', neighborhoods: [
         { slug: 'bela-vista', label: 'Bela Vista' },
         { slug: 'jardim-dos-estados', label: 'Jardim dos Estados' },
         { slug: 'caranda', label: 'Carandá' },
@@ -460,7 +466,7 @@ const LOCATION_DATA = [
         { slug: 'centro', label: 'Centro' },
         { slug: 'cruzeiro', label: 'Cruzeiro' },
     ]},
-    { slug: 'al', label: 'Maceió (AL)', neighborhoods: [
+    { slug: 'maceio', label: 'Maceió (AL)', neighborhoods: [
         { slug: 'pajucara', label: 'Pajuçara' },
         { slug: 'jacarecica', label: 'Jacarecica' },
         { slug: 'ponta-verde', label: 'Ponta Verde' },
@@ -472,7 +478,7 @@ const LOCATION_DATA = [
         { slug: 'serraria', label: 'Serraria' },
         { slug: 'feitosa', label: 'Feitosa' },
     ]},
-    { slug: 'am', label: 'Manaus (AM)', neighborhoods: [
+    { slug: 'manaus', label: 'Manaus (AM)', neighborhoods: [
         { slug: 'adrianopolis', label: 'Adrianópolis' },
         { slug: 'aleixo', label: 'Aleixo' },
         { slug: 'ponta-negra', label: 'Ponta Negra' },
@@ -484,7 +490,7 @@ const LOCATION_DATA = [
         { slug: 'compensa', label: 'Compensa' },
         { slug: 'japiim', label: 'Japiim' },
     ]},
-    { slug: 'ma', label: 'São Luís (MA)', neighborhoods: [
+    { slug: 'sao-luis', label: 'São Luís (MA)', neighborhoods: [
         { slug: 'ponta-dareia', label: "Ponta D'Areia" },
         { slug: 'sao-marcos', label: 'São Marcos' },
         { slug: 'ponta-do-farol', label: 'Ponta do Farol' },
@@ -496,7 +502,7 @@ const LOCATION_DATA = [
         { slug: 'angelim', label: 'Angelim' },
         { slug: 'turu', label: 'Turu' },
     ]},
-    { slug: 'pi', label: 'Teresina (PI)', neighborhoods: [
+    { slug: 'teresina', label: 'Teresina (PI)', neighborhoods: [
         { slug: 'joquei', label: 'Jóquei' },
         { slug: 'sao-cristovao', label: 'São Cristóvão' },
         { slug: 'fatima', label: 'Fátima' },
@@ -508,7 +514,7 @@ const LOCATION_DATA = [
         { slug: 'santa-isabel', label: 'Santa Isabel' },
         { slug: 'centro', label: 'Centro' },
     ]},
-    { slug: 'se', label: 'Aracaju (SE)', neighborhoods: [
+    { slug: 'aracaju', label: 'Aracaju (SE)', neighborhoods: [
         { slug: 'jardins', label: 'Jardins' },
         { slug: 'coroa-do-meio', label: 'Coroa do Meio' },
         { slug: 'farolandia', label: 'Farolândia' },
@@ -520,7 +526,7 @@ const LOCATION_DATA = [
         { slug: 'salgado-filho', label: 'Salgado Filho' },
         { slug: 'sao-jose', label: 'São José' },
     ]},
-    { slug: 'pa', label: 'Belém (PA)', neighborhoods: [
+    { slug: 'belem', label: 'Belém (PA)', neighborhoods: [
         { slug: 'jurunas', label: 'Jurunas' },
         { slug: 'umarizal', label: 'Umarizal' },
         { slug: 'nazare', label: 'Nazaré' },
@@ -532,7 +538,7 @@ const LOCATION_DATA = [
         { slug: 'pedreira', label: 'Pedreira' },
         { slug: 'campina', label: 'Campina' },
     ]},
-    { slug: 'mt', label: 'Cuiabá (MT)', neighborhoods: [
+    { slug: 'cuiaba', label: 'Cuiabá (MT)', neighborhoods: [
         { slug: 'jardim-cuiaba', label: 'Jardim Cuiabá' },
         { slug: 'duque-de-caxias', label: 'Duque de Caxias' },
         { slug: 'ribeirao-do-lipa', label: 'Ribeirão do Lipa' },
@@ -544,7 +550,7 @@ const LOCATION_DATA = [
         { slug: 'dos-araes', label: 'dos Araés' },
         { slug: 'centro-norte', label: 'Centro Norte' },
     ]},
-    { slug: 'rn', label: 'Natal (RN)', neighborhoods: [
+    { slug: 'natal', label: 'Natal (RN)', neighborhoods: [
         { slug: 'capim-macio', label: 'Capim Macio' },
         { slug: 'ponta-negra', label: 'Ponta Negra' },
         { slug: 'tirol', label: 'Tirol' },

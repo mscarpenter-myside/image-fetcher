@@ -669,7 +669,6 @@
             background: var(--accent-soft);
             color: var(--accent);
         }
-
     </style>
 </head>
 
@@ -792,13 +791,23 @@
             <div class="section-title">SEO · Nomenclatura</div>
             <div class="form-row">
                 <div class="form-group">
+                    <label for="descricao1">Descrição</label>
+                    <input type="text" id="descricao1" placeholder="Opcional">
+                </div>
+                <div class="form-group">
+                    <label for="descricao2">&nbsp;</label>
+                    <input type="text" id="descricao2" placeholder="Ex: Praça-da">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
                     <label for="cidade">Bairro</label>
                     <input type="text" id="cidade" placeholder="savassi" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="estado">Cidade</label>
                     <div class="city-picker-wrapper">
-                        <input type="text" id="estado" placeholder="mg" autocomplete="off">
+                        <input type="text" id="estado" placeholder="belo-horizonte" autocomplete="off">
                         <div class="city-picker-list" id="cityPickerList"></div>
                     </div>
                 </div>
